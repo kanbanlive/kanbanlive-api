@@ -29,11 +29,13 @@ boot(app, __dirname, function(err) {
     var gateway = process.env.KANBANLIVE_GATEWAY || false;
 
     if (gateway) {
+      var p = "/dev/tty.usbserial-A501B666";
+      // var p = "/dev/ttyAMA0";
+      console.log('Opening serial port: ' + p);
+
       var serialPort = require('serialport');
       var SerialPort = serialPort.SerialPort;
 
-      var p = "/dev/tty.usbserial-A501B666";
-      // var p = "/dev/ttyAMA0";
       var sp = new SerialPort(p, {
          baudrate: 9600,
          parser: serialPort.parsers.readline("--")
