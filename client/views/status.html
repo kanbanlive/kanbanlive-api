@@ -1,0 +1,22 @@
+<section ng-controller='StatusController'>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="status"></th>
+        <th class="location">Location</th>
+        <th class="part-number">Part number</th>
+        <th class="description">Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="bin in bins">
+        <td><span class="{{ binStatusCssClass(bin) }}">&nbsp;</span></td>
+        <td>{{bin.row}}{{bin.column}}</td>
+        <td>{{bin.part_number}}</td>
+        <td>{{bin.description}}</td>
+        <td>{{bin.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

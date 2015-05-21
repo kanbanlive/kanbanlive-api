@@ -1,0 +1,22 @@
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "Bin": 4
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "Bin": {
+      "1": "{\"row\":\"A\",\"column\":1,\"size\":1,\"part_number\":\"NAS1149C0316R\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000001A\",\"id\":1,\"updated_at\":1432208451899}",
+      "2": "{\"row\":\"A\",\"column\":2,\"size\":1,\"part_number\":\"NAS1149C0332R\",\"description\":\"Washer\",\"status\":\"empty\",\"key\":\"AA000001B\",\"id\":2,\"updated_at\":1432208450716}",
+      "3": "{\"row\":\"B\",\"column\":2,\"size\":2,\"part_number\":\"RGS950E\",\"description\":\"Insert\",\"status\":\"has-stock\",\"key\":\"AB000002A\",\"id\":3,\"updated_at\":1432208918716}"
+    }
+  }
+}

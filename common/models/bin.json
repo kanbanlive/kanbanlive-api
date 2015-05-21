@@ -1,0 +1,42 @@
+{
+  "name": "Bin",
+  "plural": "bins",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "row": {
+      "type": "string",
+      "required": true
+    },
+    "column": {
+      "type": "number",
+      "required": true
+    },
+    "size": {
+      "type": "number",
+      "required": true
+    },
+    "part_number": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
