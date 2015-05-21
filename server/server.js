@@ -64,7 +64,7 @@ boot(app, __dirname, function(err) {
         var i;
         for (i in bins) {
           bin = bins[i];
-          
+
           if (bin.status == 'has-stock') {
             bin.status = 'requires-stock';
           }
