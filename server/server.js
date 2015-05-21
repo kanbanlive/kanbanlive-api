@@ -26,62 +26,66 @@ boot(app, __dirname, function(err) {
       });
     });
 
-    var serialPort = require('serialport');
-    var SerialPort = serialPort.SerialPort;
+    var gateway = process.env.KANBANLIVE_GATEWAY || false;
 
-    var p = "/dev/tty.usbserial-A501B666";
-    // var p = "/dev/ttyAMA0";
-    var sp = new SerialPort(p, {
-       baudrate: 9600,
-       parser: serialPort.parsers.readline("--")
-    });
+    if (gateway) {
+      var serialPort = require('serialport');
+      var SerialPort = serialPort.SerialPort;
 
-    var ts = new Date();
-    var lastTime =ts.getTime();
-    var message = "";
-    var lastMessage = message;
-    sp.on('data', function(data) {
-      ts = new Date();
-      message = data.toString();
-
-      if (message == 'a' || message == 'AWAKE' || message == '') {
-        return;
-      }
-
-      var currentTime = ts.getTime();
-      var diff = Math.abs(currentTime - lastTime);
-      if ((diff < 500) && (message == lastMessage)) {
-        return;
-      }
-
-      lastTime = currentTime;
-      lastMessage = message;
-      console.log("Rx: %s", message);
-
-      // find Bin by key
-      key = message.substring(1);
-      app.models.Bin.find({where: {key: key}, limit: 1}, function(err, bins) {
-        var i;
-        for (i in bins) {
-          bin = bins[i];
-
-          if (bin.status == 'has-stock') {
-            bin.status = 'requires-stock';
-          }
-          else if (bin.status == 'requires-stock') {
-            bin.status = 'empty';
-          }
-          else if (bin.status == 'empty') {
-            bin.status = 'has-stock';
-          }
-          else {
-            bin.status = 'has-stock';
-          }
-
-          bin.updated_at = currentTime;
-          bin.save();
-        }
+      var p = "/dev/tty.usbserial-A501B666";
+      // var p = "/dev/ttyAMA0";
+      var sp = new SerialPort(p, {
+         baudrate: 9600,
+         parser: serialPort.parsers.readline("--")
       });
-    });
+
+      var ts = new Date();
+      var lastTime =ts.getTime();
+      var message = "";
+      var lastMessage = message;
+      sp.on('data', function(data) {
+        ts = new Date();
+        message = data.toString();
+
+        if (message == 'a' || message == 'AWAKE' || message == '') {
+          return;
+        }
+
+        var currentTime = ts.getTime();
+        var diff = Math.abs(currentTime - lastTime);
+        if ((diff < 500) && (message == lastMessage)) {
+          return;
+        }
+
+        lastTime = currentTime;
+        lastMessage = message;
+        console.log("Rx: %s", message);
+
+        // find Bin by key
+        key = message.substring(1);
+        app.models.Bin.find({where: {key: key}, limit: 1}, function(err, bins) {
+          var i;
+          for (i in bins) {
+            bin = bins[i];
+
+            if (bin.status == 'has-stock') {
+              bin.status = 'requires-stock';
+            }
+            else if (bin.status == 'requires-stock') {
+              bin.status = 'empty';
+            }
+            else if (bin.status == 'empty') {
+              bin.status = 'has-stock';
+            }
+            else {
+              bin.status = 'has-stock';
+            }
+
+            bin.updated_at = currentTime;
+            bin.save();
+          }
+        });
+      });
+    }
 
   });
