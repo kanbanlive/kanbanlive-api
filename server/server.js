@@ -17,7 +17,7 @@ boot(app, __dirname, function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
-  if (require.main === module)
+  if (require.main === module) {
     app.io = require('socket.io')(app.start());
     app.io.on('connection', function(socket){
       console.log('connected');
@@ -89,5 +89,5 @@ boot(app, __dirname, function(err) {
         });
       });
     }
-
-  });
+  }
+});
