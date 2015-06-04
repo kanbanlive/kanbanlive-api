@@ -19,8 +19,11 @@ th.description {
 }
 
 
+.badge {
+    background-color: transparent;
+}
+
 span.badge.badge {
-    background-color: #fce685;
     margin-left: 4px
 }
 
