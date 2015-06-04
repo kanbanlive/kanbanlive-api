@@ -64,20 +64,22 @@ boot(app, __dirname, function(err) {
         console.log("Rx: %s", message);
 
         // find Bin by key
-        key = message.substring(1);
+        key = message.substring(1, 9);
+        status = message[9];
+
         app.models.Bin.find({where: {key: key}, limit: 1}, function(err, bins) {
           var i;
           for (i in bins) {
             bin = bins[i];
 
-            if (bin.status == 'has-stock') {
+            if (status == 0) {
+              bin.status = 'has-stock';
+            }
+            else if (status == 1) {
               bin.status = 'requires-stock';
             }
-            else if (bin.status == 'requires-stock') {
+            else if (status == 2) {
               bin.status = 'empty';
-            }
-            else if (bin.status == 'empty') {
-              bin.status = 'has-stock';
             }
             else {
               bin.status = 'has-stock';
