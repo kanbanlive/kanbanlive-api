@@ -75,7 +75,7 @@ boot(app, __dirname, function(err) {
             if (status == 0) {
               new_status = 'has-stock';
             }
-            else if (status == 1) {
+            else {
               new_status = 'requires-stock';
             }
             // else if (status == 2) {
