@@ -63,30 +63,33 @@ boot(app, __dirname, function(err) {
         lastMessage = message;
         console.log("Rx: %s", message);
 
-        // find Bin by key
-        key = message.substring(1, 9);
-        status = message[9];
+        val = parseInt(message.substring(message.length - 4), 16);
 
-        app.models.Bin.find({where: {key: key}, limit: 1}, function(err, bins) {
+        app.models.Bin.find(function(err, bins) {
           var i;
           for (i in bins) {
             bin = bins[i];
 
+            var status = val & bin.port_mask;
+
             if (status == 0) {
-              bin.status = 'has-stock';
+              new_status = 'has-stock';
             }
             else if (status == 1) {
-              bin.status = 'requires-stock';
+              new_status = 'requires-stock';
             }
-            else if (status == 2) {
-              bin.status = 'empty';
-            }
-            else {
-              bin.status = 'has-stock';
-            }
+            // else if (status == 2) {
+            //   bin.status = 'empty';
+            // }
+            // else {
+            //   bin.status = 'has-stock';
+            // }
 
-            bin.updated_at = currentTime;
-            bin.save();
+            if (bin.status != new_status) {
+              bin.status = new_status;
+              bin.updated_at = currentTime;
+              bin.save();
+            }
           }
         });
       });
