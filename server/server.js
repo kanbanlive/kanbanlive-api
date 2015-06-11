@@ -38,7 +38,7 @@ boot(app, __dirname, function(err) {
 
       var sp = new SerialPort(p, {
          baudrate: 9600,
-         parser: serialPort.parsers.readline("--")
+         parser: serialPort.parsers.readline("-")
       });
 
       var ts = new Date();
@@ -49,7 +49,8 @@ boot(app, __dirname, function(err) {
         ts = new Date();
         message = data.toString();
 
-        if (message == 'a' || message == 'AWAKE' || message == '') {
+        if (message.length != 10) {
+          console.log("Ignoring message: %s", message);
           return;
         }
 
