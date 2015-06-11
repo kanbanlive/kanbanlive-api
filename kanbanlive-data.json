@@ -14,9 +14,11 @@
     "RoleMapping": {},
     "Role": {},
     "Bin": {
-      "1": "{\"row\":\"A\",\"column\":1,\"size\":1,\"part_number\":\"NAS1149C0316R\",\"description\":\"Washer\",\"status\":\"requires-stock\",\"key\":\"AA000001\",\"port_mask\":256,\"id\":1,\"updated_at\":1433426768507}",
-      "2": "{\"row\":\"A\",\"column\":2,\"size\":1,\"part_number\":\"NAS1149C0332R\",\"description\":\"Washer\",\"status\":\"requires-stock\",\"key\":\"AA000002\",\"port_mask\":512,\"id\":2,\"updated_at\":1433425955102}",
-      "3": "{\"row\":\"B\",\"column\":2,\"size\":2,\"part_number\":\"RGS950E\",\"description\":\"Insert\",\"status\":\"requires-stock\",\"key\":\"AB000003\",\"port_mask\":1024,\"id\":3,\"updated_at\":1432738526123}"
+      "1": "{\"row\":\"A\",\"column\":1,\"size\":1,\"part_number\":\"NAS1149C0316R\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000001\",\"port_mask\":256,\"id\":1,\"updated_at\":1434016994332}",
+      "2": "{\"row\":\"A\",\"column\":2,\"size\":1,\"part_number\":\"NAS1149C0332R\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000002\",\"port_mask\":512,\"id\":2,\"updated_at\":1434016985320}",
+      "3": "{\"row\":\"B\",\"column\":2,\"size\":2,\"part_number\":\"RGS950E\",\"description\":\"Insert\",\"status\":\"has-stock\",\"key\":\"AB000003\",\"port_mask\":1024,\"id\":3,\"updated_at\":1434016991107}",
+      "4": "{\"row\":\"C\",\"column\":1,\"size\":1,\"part_number\":\"23111CC040\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000001A\",\"port_mask\":0,\"id\":4,\"updated_at\":1434016990622}",
+      "5": "{\"row\":\"C\",\"column\":2,\"size\":1,\"part_number\":\"NAS620C6L\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000001B\",\"port_mask\":0,\"id\":5,\"updated_at\":1434016991882}"
     }
   }
 }
