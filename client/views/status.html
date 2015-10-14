@@ -15,7 +15,11 @@
         <td>{{bin.row}}{{bin.column}}</td>
         <td>{{bin.part_number}}</td>
         <td>{{bin.description}}</td>
-        <td>{{bin.status}}</td>
+        <td>
+          <select name="repeatSelect" id="repeatSelect" ng-model="bin.status">
+            <option ng-repeat="item in statusItems" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </td>
       </tr>
     </tbody>
   </table>

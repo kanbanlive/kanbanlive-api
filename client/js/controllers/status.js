@@ -3,6 +3,12 @@ angular
   .controller('StatusController', ['$scope', '$state', 'Bin', function($scope,
       $state, Bin) {
     $scope.bins = [];
+    $scope.statusItems = [
+      { id: 'has-stock', name: 'Has stock' },
+      { id: 'requires-stock', name: 'Requires stock' },
+      { id: 'empty', name: 'Empty' }
+    ];
+
     function getBins() {
       Bin
         .find()
