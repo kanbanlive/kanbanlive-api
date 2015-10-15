@@ -1,7 +1,7 @@
 angular
   .module('app')
-  .controller('StatusController', ['$scope', '$state', 'Bin', function($scope,
-      $state, Bin) {
+  .controller('StatusController', ['$scope', '$state', '$http', 'Bin', function($scope,
+      $state, $http, Bin) {
     $scope.bins = [];
     $scope.statusItems = [
       { id: 'has-stock', name: 'Has stock' },
@@ -39,6 +39,17 @@ angular
       }
 
       return cssClass;
+    }
+
+    $scope.binStatusChanged = function(bin) {
+      var res = $http.put('/api/bins/' + bin.id, bin);
+      res.success(function(data, status, headers, config) {
+        console.log("Bin upated!");
+      });
+      res.error(function(data, status, headers, config) {
+        alert( "failure message: " + JSON.stringify({data: data}));
+      });
+      return bin.status;
     }
 
     var socket = io.connect();

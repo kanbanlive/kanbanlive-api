@@ -16,9 +16,10 @@
         <td>{{bin.part_number}}</td>
         <td>{{bin.description}}</td>
         <td>
-          <select name="repeatSelect" id="repeatSelect" ng-model="bin.status">
-            <option ng-repeat="item in statusItems" value="{{item.id}}">{{item.name}}</option>
-          </select>
+          <select name="statusSelect" id="statusSelect"
+            ng-options="item.id as item.name for item in statusItems"
+            ng-model="bin.status"
+            ng-change="binStatusChanged(bin)"></select>
         </td>
       </tr>
     </tbody>
