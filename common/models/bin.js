@@ -11,7 +11,7 @@ module.exports = function(Bin) {
 
       if (gateway) {
         request.put({
-          url: '/api/bins/' + bin.id,
+          url: 'https://kanbanlive-api.herokuapp.com:443/api/bins/' + bin.id,
           method: 'PUT',
           json: bin
         }, function(err, response) {
