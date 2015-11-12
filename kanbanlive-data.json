@@ -5,7 +5,9 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Bin": 4
+    "Bin": 6,
+    "Gateway": 3,
+    "Sensor": 1
   },
   "models": {
     "User": {},
@@ -14,11 +16,17 @@
     "RoleMapping": {},
     "Role": {},
     "Bin": {
-      "1": "{\"row\":\"A\",\"column\":1,\"size\":1,\"part_number\":\"NSA5516CA02NF\",\"description\":\"Clamp\",\"status\":\"has-stock\",\"key\":\"AA000001\",\"port_mask\":256,\"id\":1,\"updated_at\":1434016994332}",
-      "2": "{\"row\":\"A\",\"column\":2,\"size\":1,\"part_number\":\"10PA106\",\"description\":\"Nut\",\"status\":\"has-stock\",\"key\":\"AA000002\",\"port_mask\":512,\"id\":2,\"updated_at\":1434016985320}",
-      "3": "{\"row\":\"B\",\"column\":2,\"size\":2,\"part_number\":\"MS3470W14-19PN\",\"description\":\"Connector\",\"status\":\"has-stock\",\"key\":\"AB000003\",\"port_mask\":1024,\"id\":3,\"updated_at\":1434016991107}",
-      "4": "{\"row\":\"C\",\"column\":1,\"size\":1,\"part_number\":\"C125L1S17\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000001A\",\"port_mask\":0,\"id\":4,\"updated_at\":1434016990622}",
-      "5": "{\"row\":\"C\",\"column\":2,\"size\":1,\"part_number\":\"182X2-50D6\",\"description\":\"O Ring\",\"status\":\"has-stock\",\"key\":\"AA000001B\",\"port_mask\":0,\"id\":5,\"updated_at\":1434016991882}"
+      "1": "{\"row\":\"A\",\"column\":1,\"size\":1,\"partNumber\":\"NSA5516CA02NF\",\"description\":\"Clamp\",\"status\":\"requires-stock\",\"key\":\"AA000001\",\"port_mask\":256,\"id\":1,\"updated_at\":1447327050829}",
+      "2": "{\"row\":\"A\",\"column\":2,\"size\":1,\"partNumber\":\"10PA106\",\"description\":\"Nut\",\"status\":\"has-stock\",\"key\":\"AA000002\",\"port_mask\":512,\"id\":2,\"updated_at\":1447330585052}",
+      "3": "{\"row\":\"B\",\"column\":2,\"size\":2,\"partNumber\":\"MS3470W14-19PN\",\"description\":\"Connector\",\"status\":\"has-stock\",\"key\":\"AB000003\",\"port_mask\":1024,\"id\":3,\"updated_at\":1447330588970}",
+      "4": "{\"row\":\"C\",\"column\":1,\"size\":1,\"partNumber\":\"C125L1S17\",\"description\":\"Washer\",\"status\":\"has-stock\",\"key\":\"AA000001A\",\"port_mask\":0,\"id\":4,\"updated_at\":1434016990622}",
+      "5": "{\"row\":\"C\",\"column\":2,\"size\":1,\"partNumber\":\"182X2-50D6\",\"description\":\"O Ring\",\"status\":\"has-stock\",\"key\":\"AA000001B\",\"port_mask\":0,\"id\":5,\"updated_at\":1434016991882}"
+    },
+    "Gateway": {
+      "1": "{\"name\":\"Demo Gateway\",\"status\":\"offline\",\"id\":1}"
+    },
+    "Sensor": {
+      "1": "{\"name\":\"Demo Sensor\",\"status\":\"Not connected\",\"id\":1,\"gatewayId\":1,\"batteryLevel\":\"2.907\",\"lastHeartbeatAt\":\"2015-11-12T12:16:28.973Z\"}"
     }
   }
 }

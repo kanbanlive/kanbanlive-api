@@ -1,8 +1,9 @@
 angular
   .module('app')
-  .controller('StatusController', ['$scope', '$state', '$http', 'Bin', function($scope,
-      $state, $http, Bin) {
+  .controller('StatusController', ['$scope', '$state', '$http', 'Bin', 'Gateway', function($scope,
+      $state, $http, Bin, Gateway) {
     $scope.bins = [];
+    $scope.gateways = [];
     $scope.statusItems = [
       { id: 'has-stock', name: 'Has stock' },
       { id: 'requires-stock', name: 'Requires stock' },
@@ -18,6 +19,16 @@ angular
         });
     }
     getBins();
+
+    function getGateways() {
+      Gateway
+        .find({filter: { include: 'sensors' } })
+        .$promise
+        .then(function(results) {
+          $scope.gateways = results;
+        });
+    }
+    getGateways();
 
     $scope.binStatusCssClass = function(bin) {
       cssClass = "badge";
@@ -58,6 +69,11 @@ angular
       $scope.$apply();
     });
 
+    socket.on('sensor/updated', function (data) {
+      updateSensor(data.body);
+      $scope.$apply();
+    });
+
     var updateBin = function(newBin) {
       var i;
       for (i = 0; i < $scope.bins.length; i++) {
@@ -65,5 +81,13 @@ angular
           $scope.bins[i].status = newBin.status;
         }
       }
+    }
+
+    var updateSensor = function(newSensor) {
+      var gateway = $scope.gateways[0];
+      var sensor = gateway.sensors[0];
+      sensor.status = newSensor.status;
+      sensor.batteryLevel = newSensor.batteryLevel;
+      sensor.lastHeartbeatAt = newSensor.lastHeartbeatAt;
     }
   }]);

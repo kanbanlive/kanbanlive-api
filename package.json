@@ -5,7 +5,9 @@
   "scripts": {
     "pretest": "jshint ."
   },
-  "engines" : { "node" : "0.12.7" },
+  "engines": {
+    "node": "0.12.7"
+  },
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
@@ -13,6 +15,7 @@
     "loopback": "^2.14.0",
     "loopback-boot": "^2.6.5",
     "loopback-datasource-juggler": "^2.19.0",
+    "morgan": "^1.6.1",
     "request": "^2.55.0",
     "serialport": "^1.7.1",
     "serve-favicon": "^2.0.1",

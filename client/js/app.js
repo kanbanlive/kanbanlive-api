@@ -3,6 +3,15 @@ angular
     'lbServices',
     'ui.router'
   ])
+  .filter('voltageLevel', function() {
+    return function(input) {
+      if (input == null) {
+        return input;
+      }
+
+      return input + "V";
+    }
+  })
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider

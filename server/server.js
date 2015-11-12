@@ -2,6 +2,7 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
+app.use(loopback.logger('dev'));
 
 app.start = function() {
   // start the web server
@@ -26,12 +27,44 @@ boot(app, __dirname, function(err) {
       });
     });
 
+    setInterval(function() {
+      app.models.Sensor.findById(1, function(err, sensor) {
+        if (sensor.status == "Not connected") {
+          return;
+        }
+
+        var sensorDisconnected = false;
+        if (sensor.lastHeartbeatAt == null) {
+          sensorDisconnected = true;
+        }
+        else {
+          var now = new Date();
+          var diff = now  - sensor.lastHeartbeatAt;
+
+          // set disconnected if we haven't received
+          // a heartbeat for over 90 seconds
+          if (diff > 90000) {
+            sensorDisconnected = true;
+          }
+        }
+
+        if (sensorDisconnected) {
+          console.log("[%s] Sensor disconnected", now.toISOString());
+          sensor.status = "Not connected";
+          sensor.save();
+        }
+      });
+    }, 10000);
+
     var gateway = process.env.KANBANLIVE_GATEWAY || false;
 
     if (gateway) {
-      var p = "/dev/tty.usbserial-A501B666";
+      console.log('Configured as gateway');
+
+      // var p = "/dev/tty.usbserial-A501B666";
+      var p = "/dev/tty.usbmodem000001";
       // var p = "/dev/ttyAMA0";
-      console.log('Opening serial port: ' + p);
+      console.log("Opening serial port: %s", p);
 
       var serialPort = require('serialport');
       var SerialPort = serialPort.SerialPort;
@@ -42,15 +75,15 @@ boot(app, __dirname, function(err) {
       });
 
       var ts = new Date();
-      var lastTime =ts.getTime();
+      var lastTime = ts.getTime();
       var message = "";
       var lastMessage = message;
       sp.on('data', function(data) {
         ts = new Date();
         message = data.toString();
 
-        if (message.length != 10) {
-          console.log("Ignoring message: %s", message);
+        if (message.length != 11) {
+          console.log("%s ignoring message: %s", ts.toISOString(), message);
           return;
         }
 
@@ -62,9 +95,18 @@ boot(app, __dirname, function(err) {
 
         lastTime = currentTime;
         lastMessage = message;
-        console.log("Rx: %s", message);
+        console.log("[%s] rx: %s", ts.toISOString(), message);
 
+        batteryLevel = parseInt(message.substring(3, 7), 16) / 1000;
         val = parseInt(message.substring(message.length - 4), 16);
+        console.log("[%s] batttery level: %dV, value: %s", ts.toISOString(), batteryLevel, val);
+
+        app.models.Sensor.findById(1, function(err, sensor) {
+          sensor.status = "Connected";
+          sensor.batteryLevel = batteryLevel;
+          sensor.lastHeartbeatAt = new Date();
+          sensor.save();
+        });
 
         if ((val == 0x001A) || (val == 0x001B)) {
           key = message.substring(1);
@@ -125,6 +167,9 @@ boot(app, __dirname, function(err) {
           });
         }
       });
+    }
+    else {
+      console.log('Configured as server');
     }
   }
 });

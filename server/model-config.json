@@ -29,5 +29,13 @@
   "Bin": {
     "dataSource": "db",
     "public": true
+  },
+  "Sensor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Gateway": {
+    "dataSource": "db",
+    "public": true
   }
 }

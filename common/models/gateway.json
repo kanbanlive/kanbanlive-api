@@ -1,0 +1,32 @@
+{
+  "name": "Gateway",
+  "plural": "gateways",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "lastHeartbeatAt": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sensors": {
+      "type": "hasMany",
+      "model": "Sensor",
+      "foreignKey": "gatewayId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

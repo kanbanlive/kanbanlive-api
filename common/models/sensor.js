@@ -1,19 +1,19 @@
 var request = require('request');
 
-module.exports = function(Bin) {
-  Bin.observe('after save', function(ctx, next) {
+module.exports = function(Sensor) {
+  Sensor.observe('after save', function(ctx, next) {
     if (ctx.instance) {
-      bin = ctx.instance;
+      sensor = ctx.instance;
 
-      Bin.app.io.emit( "bin/updated", { body: bin });
+      Sensor.app.io.emit( "sensor/updated", { body: sensor });
 
       var configuredAsGateway = process.env.KANBANLIVE_GATEWAY || false;
 
       if (configuredAsGateway) {
         request.put({
-          url: 'https://kanbanlive-api.herokuapp.com:443/api/bins/' + bin.id,
+          url: 'https://kanbanlive-api.herokuapp.com:443/api/sensors/' + sensor.id,
           method: 'PUT',
-          json: bin
+          json: sensor
         }, function(err, response) {
           if (err) console.error(err);
         });
