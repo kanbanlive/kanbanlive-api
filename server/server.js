@@ -98,7 +98,7 @@ boot(app, __dirname, function(err) {
         lastMessage = message;
         console.log("[%s] rx: %s", ts.toISOString(), message);
 
-        var battery = null;
+        var batteryLevel = null;
         if (message.length == 11) {
           batteryLevel = parseInt(message.substring(3, 7), 16) / 1000;
         }
