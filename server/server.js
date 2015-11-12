@@ -83,7 +83,7 @@ boot(app, __dirname, function(err) {
         ts = new Date();
         message = data.toString();
 
-        if (message.length != 11) {
+        if ((message.length != 10) && (message.length != 11)) {
           console.log("[%s] ignoring message: %s", ts.toISOString(), message);
           return;
         }
@@ -98,7 +98,10 @@ boot(app, __dirname, function(err) {
         lastMessage = message;
         console.log("[%s] rx: %s", ts.toISOString(), message);
 
-        batteryLevel = parseInt(message.substring(3, 7), 16) / 1000;
+        var battery = null;
+        if (message.length == 11) {
+          batteryLevel = parseInt(message.substring(3, 7), 16) / 1000;
+        }
         val = parseInt(message.substring(message.length - 4), 16);
         console.log("[%s] batttery level: %dV, value: %s", ts.toISOString(), batteryLevel, val);
 
