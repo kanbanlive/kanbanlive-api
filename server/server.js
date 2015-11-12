@@ -61,9 +61,10 @@ boot(app, __dirname, function(err) {
     if (gateway) {
       console.log('Configured as gateway');
 
-      // var p = "/dev/tty.usbserial-A501B666";
-      var p = "/dev/tty.usbmodem000001";
-      // var p = "/dev/ttyAMA0";
+      var p = process.env.KANBANLIVE_SERIALPORT;
+      if (!p) {
+        p = "/dev/ttyAMA0";
+      }
       console.log("Opening serial port: %s", p);
 
       var serialPort = require('serialport');
@@ -83,7 +84,7 @@ boot(app, __dirname, function(err) {
         message = data.toString();
 
         if (message.length != 11) {
-          console.log("%s ignoring message: %s", ts.toISOString(), message);
+          console.log("[%s] ignoring message: %s", ts.toISOString(), message);
           return;
         }
 
