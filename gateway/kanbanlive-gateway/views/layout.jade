@@ -1,0 +1,235 @@
+doctype html
+html.no-js
+  head
+    meta(charset='utf-8')
+    meta(name='description', content='Flat, Clean, Responsive, application admin template built with bootstrap 3')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1')
+
+    title Dashboard - Kanban Live
+
+    link(rel='stylesheet', href='vendor/bower-jvectormap/jquery-jvectormap-1.2.2.css')
+
+    link(rel='stylesheet', href='vendor/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='styles/font-awesome.css')
+    link(rel='stylesheet', href='styles/themify-icons.css')
+    link(rel='stylesheet', href='styles/animate.css')
+    //link#skin(rel='stylesheet', href='styles/sublime.skins.css')
+    link(rel='stylesheet', href='styles/sublime.css')
+    link(rel='stylesheet', href='styles/kanbanlive.css')
+
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      |
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    // load modernizer
+    script(src='vendor/modernizr.js')
+  body
+    .app
+      // top header
+      header.header.header-fixed.navbar
+        .brand
+          a.ti-menu.off-left.visible-xs(href='javascript:;', data-toggle='offscreen', data-move='ltr')
+          a.navbar-brand(href='/')
+            img(src='images/logo.png', alt='')
+            span.heading-font Kanban Live
+
+        ul.nav.navbar-nav
+          li.hidden-xs
+            // toggle small menu
+            a.toggle-sidebar(href='javascript:;')
+              i.ti-menu
+          li.header-search
+            // toggle search
+            a.toggle-search(href='javascript:;')
+              i.ti-search
+            .search-container
+              form(role='search')
+                input.form-control.search(type='text', placeholder='type and press enter')
+
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown.hidden-xs
+            a(href='javascript:;', data-toggle='dropdown')
+              i.ti-more-alt
+            ul.dropdown-menu.animated.zoomIn
+              li.dropdown-header Quick Links
+              li
+                a(href='javascript:;') Start New Campaign
+              li
+                a(href='javascript:;') Review Campaigns
+              li.divider
+              li
+                a(href='javascript:;') Settings
+              li
+                a(href='javascript:;') Wish List
+              li
+                a(href='javascript:;') Purchases History
+              li.divider
+              li
+                a(href='javascript:;') Activity Log
+              li
+                a(href='javascript:;') Settings
+              li
+                a(href='javascript:;') System Reports
+              li.divider
+              li
+                a(href='javascript:;') Help
+              li
+                a(href='javascript:;') Report a Problem
+          li.notifications.dropdown
+            a(href='javascript:;', data-toggle='dropdown')
+              i.ti-bell
+              .badge.badge-top.bg-danger.animated.flash
+                span 3
+            .dropdown-menu.animated.fadeInLeft
+              .panel.panel-default.no-m
+                .panel-heading.small
+                  b Notifications
+                ul.list-group
+                  li.list-group-item
+                    a(href='javascript:;')
+                      span.pull-left.mt5.mr15
+                        img.avatar.avatar-sm.img-circle(src='images/face4.jpg', alt='')
+                      .m-body
+                        div
+                          small
+                            b CRYSTAL BROWN
+                          span.label.label-danger.pull-right ASSIGN AGENT
+                        span Opened a support query
+                        span.time.small 2 mins ago
+                  li.list-group-item
+                    a(href='javascript:;')
+                      .pull-left.mt5.mr15
+                        .circle-icon.bg-danger
+                          i.ti-download
+                      .m-body
+                        span Upload Progress
+                        .progress.progress-xs.mt5.mb5
+                          .progress-bar(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                        span.time.small Submited 23 mins ago
+                  li.list-group-item
+                    a(href='javascript:;')
+                      span.pull-left.mt5.mr15
+                        img.avatar.avatar-sm.img-circle(src='images/face3.jpg', alt='')
+                      .m-body
+                        em Status Update:
+                        span All servers now online
+                        span.time.small 5 days ago
+                .panel-footer
+                  a(href='javascript:;') See all notifications
+          li.off-right
+            a(href='javascript:;', data-toggle='dropdown')
+              img.header-avatar.img-circle(src='images/avatar.jpg', alt='user', title='user')
+              span.hidden-xs.ml10 Gerald Morris
+              i.ti-angle-down.ti-caret.hidden-xs
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                a(href='javascript:;') Settings
+              li
+                a(href='javascript:;') Upgrade
+              li
+                a(href='javascript:;')
+                  .badge.bg-danger.pull-right 3
+                  span Notifications
+              li
+                a(href='javascript:;') Help
+              li
+                a(href='signin.html') Logout
+      // /top header
+      section.layout
+        // sidebar menu
+        aside.sidebar.offscreen-left
+          // main navigation
+          nav.main-navigation(data-height='auto', data-size='6px', data-distance='0', data-rail-visible='true', data-wheel-step='10')
+            p.nav-title MENU
+            ul.nav
+              li.active
+                a(href='/')
+                  i.ti-home
+                  span Dashboard
+            p.nav-title WAREHOUSE
+            ul.nav
+              li
+                a(href='/inventory')
+                  i.ti-layout-media-overlay-alt-2
+                  span Inventory
+              li
+                a(href='scans.html')
+                  i.ti-support
+                  span Scans
+              li
+                a(href='picks.html')
+                  i.ti-support
+                  span Picks
+              li
+                a(href='restocks.html')
+                  i.ti-support
+                  span Restocks
+              li
+                a(href='parts.html')
+                  i.ti-support
+                  span Parts
+            p.nav-title PURCHASING
+            ul.nav
+              li
+                a(href='request_for_quotes.html')
+                  i.ti-layers
+                  span Request for Quotes
+              li
+                a(href='purchase_orders.html')
+                  i.ti-layers
+                  span Purchase Orders
+              li
+                a(href='suppliers.html')
+                  i.ti-layers
+                  span Suppliers
+            p.nav-title SALES
+            ul.nav
+              li
+                a(href='sales_orders.html')
+                  i.ti-layers
+                  span Sales Orders
+              li
+                a(href='customers.html')
+                  i.ti-layers
+                  span Customers
+              li
+                a(href='contracts.html')
+                  i.ti-layers
+                  span Contracts
+            p.nav-title REPORTS
+            ul.nav
+              li
+                a(href='part_usages.html')
+                  i.ti-layers
+                  span Part Usages
+            p.nav-title ADMIN
+            ul.nav
+              li
+                a(href='users.html')
+                  i.ti-layers
+                  span Users
+              li
+                a(href='user_groups.html')
+                  i.ti-layers
+                  span User Groups
+        block content
+
+    script(src='vendor/jquery/dist/jquery.js')
+    script(src='vendor/bootstrap/dist/js/bootstrap.js')
+    script(src='vendor/slimScroll/jquery.slimscroll.js')
+    script(src='vendor/jquery.easing/jquery.easing.js')
+    script(src='vendor/jquery_appear/jquery.appear.js')
+    script(src='vendor/jquery.placeholder.js')
+    script(src='vendor/fastclick/lib/fastclick.js')
+
+    script(src='vendor/blockUI/jquery.blockUI.js')
+    script(src='vendor/bower-jvectormap/jquery-jvectormap-1.2.2.min.js')
+    script(src='data/maps/jquery-jvectormap-world-mill-en.js')
+    script(src='vendor/jquery.sparkline.js')
+    script(src='vendor/flot/jquery.flot.js')
+    script(src='vendor/flot/jquery.flot.resize.js')
+    script(src='vendor/jquery-countTo/jquery.countTo.js')
+
+    script(src='scripts/offscreen.js')
+    script(src='scripts/main.js')

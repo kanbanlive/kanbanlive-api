@@ -1,0 +1,720 @@
+extends layout
+block content
+  aside.inventory-sidebar.canvas-right.bg-default
+    .content-wrap.no-p
+      .wrapper
+        nav.inventory-navigation(role='navigation', data-height='auto', data-size='6px', data-distance='0', data-rail-visible='true', data-wheel-step='10')
+          .no-padding
+            p.nav-title Quick Links
+            ul.nav.nav-stacked
+              li
+                a(href='inventory.html') New demand
+              li
+                a(href='javascript:;')
+                  | In progress
+                  span.badge.pull-right.bg-requires-stock.badge-pill-right 95
+                  span.badge.pull-right.bg-empty.badge-pill-left 3
+              li
+                a(href='javascript:;')
+                  | Overview
+                  span.badge.pull-right.bg-requires-stock.badge-pill-right 95
+                  span.badge.pull-right.bg-empty.badge-pill-left 3
+              li
+                a(href='javascript:;')
+                  | Empty
+                  span.badge.pull-right.bg-empty 3
+              li
+                a(href='javascript:;')
+                  | Requires stock
+                  span.badge.pull-right.bg-requires-stock 95
+            p.nav-title Locations
+            ul.nav.nav-stacked
+              li.open
+                a.active(href='javascript:;')
+                  i.toggle-accordion
+                  span Liebherr
+                ul.sub-menu
+                  li.open
+                    a.active(href='javascript:;')
+                      i.toggle-accordion
+                      span Gravure
+                    ul.sub-menu
+                      li
+                        a(href='/panel')
+                          span M01
+                          span.badge.pull-right.bg-requires-stock 4
+                  li
+                    a(href='javascript:;')
+                      i.toggle-accordion
+                      span MGF
+                    ul.sub-menu
+                      li
+                        a(href='javascript:;')
+                          span A01
+                      li
+                        a(href='javascript:;')
+                          span A03
+                      li
+                        a(href='javascript:;')
+                          span A05
+                      li
+                        a(href='javascript:;')
+                          span A07
+                      li
+                        a(href='javascript:;')
+                          span A09
+                      li
+                        a(href='javascript:;')
+                          span A10
+                      li
+                        a(href='javascript:;')
+                          span A12
+                      li
+                        a(href='javascript:;')
+                          span A13
+                      li
+                        a(href='javascript:;')
+                          span A14
+                      li
+                        a(href='javascript:;')
+                          span A15
+                      li
+                        a(href='javascript:;')
+                          span A16
+                      li
+                        a(href='javascript:;')
+                          span A17
+                      li
+                        a(href='javascript:;')
+                          span A18
+                      li
+                        a(href='javascript:;')
+                          span A19
+                      li
+                        a(href='javascript:;')
+                          span B09
+                      li
+                        a(href='javascript:;')
+                          span B11
+                      li
+                        a(href='javascript:;')
+                          span B12
+                      li
+                        a(href='javascript:;')
+                          span B13
+                      li
+                        a(href='javascript:;')
+                          span B14
+                      li
+                        a(href='javascript:;')
+                          span B15
+                      li
+                        a(href='javascript:;')
+                          span B16
+                      li
+                        a(href='javascript:;')
+                          span B17
+                      li
+                        a(href='javascript:;')
+                          span B18
+                      li
+                        a(href='javascript:;')
+                          span B19
+                      li
+                        a(href='javascript:;')
+                          span B21
+                      li
+                        a(href='javascript:;')
+                          span B22
+                      li
+                        a(href='javascript:;')
+                          span B23
+                      li
+                        a(href='javascript:;')
+                          span B24
+                      li
+                        a(href='javascript:;')
+                          span B25
+                      li
+                        a(href='javascript:;')
+                          span B26
+                      li
+                        a(href='javascript:;')
+                          span B27
+                      li
+                        a(href='javascript:;')
+                          span B28
+                      li
+                        a(href='javascript:;')
+                          span B29
+                      li
+                        a(href='javascript:;')
+                          span B30
+                      li
+                        a(href='javascript:;')
+                          span B31
+                      li
+                        a(href='javascript:;')
+                          span B32
+              li
+                a(href='javascript:;')
+                  i.toggle-accordion
+                  |  Technofan
+                ul.sub-menu
+                  li
+                    a(href='javascript:;')
+                      span Kardex A
+                  li
+                    a(href='javascript:;')
+                      span Kardex B
+  // /mail sidebar navigation
+  // main content
+  section.main-content
+    // content wrapper
+    .content-wrap
+      // inner content wrapper
+      .wrapper
+        .row.mb15
+          .col-xs-6
+            h4 Liebherr / Gravure / M01
+          .col-xs-6.text-right
+            .btn-group
+              a.btn.btn-primary.btn-sm(href='/panel-list')
+                i.ti-view-list
+              a.btn.btn-primary.btn-sm.active(href='/panel')
+                i.ti-view-grid
+            .btn-group
+              button.btn.btn-primary.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Filter
+                span.ti-angle-down.ml10
+              ul.dropdown-menu.text-left.filter(data-option-key='filter', role='menu')
+                li
+                  a(href='javascript:;', data-filter='.overview') Overview
+                li
+                  a(href='javascript:;', data-filter='.empty') Empty
+                li
+                  a(href='javascript:;', data-filter='.requires-stock') Requires stock
+                li
+                  a(href='javascript:;', data-filter='.*') All
+            .btn-group(data-toggle='buttons')
+              button.btn.btn-primary.btn-sm(type='button') Download
+        .row.grid-view
+          .col-md-12
+            table
+              thead.grid-header
+                tr
+                  th.row-header
+                  th 1
+                  th 2
+                  th 3
+                  th 4
+                  th 5
+                  th 6
+                  th 7
+                  th 8
+                  th 9
+                  th 10
+              tbody
+                tr.grid-row
+                  th.row-header A
+                  td(ondrop='drop(event)', ondragover='allowDrop(event)')
+                    .grid-item-container
+                      .grid-item-bg
+                        p.grid-item-placeholder A1
+                      #a1.grid-item(draggable='true', ondragstart='drag(event)')
+                        .grid-item-header
+                          p.location
+                            | A1
+                            span.badge.bg-requires-stock &nbsp;
+                        .grid-item-content
+                          p.part-number
+                            a(href='#') S4614BB2
+                          p.part-description LABEL
+                          p.part-number 150 / 200
+                          // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td(ondrop='drop(event)', ondragover='allowDrop(event)')
+                    .grid-item-container
+                      .grid-item-bg
+                        p.grid-item-placeholder A2
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location A3
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S22225CM060018
+                        p.part-description SCREW
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | A4
+                          span.badge.bg-requires-stock &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') EN2997SE00803M7
+                        p.part-description CONNECTOR
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | A5
+                          span.badge.bg-empty &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S103A1260090080
+                        p.part-description BEARING
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | A6
+                          span.badge.bg-empty &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') I-E8-12S
+                        p.part-description SEAL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location A7
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S602-103-53X1-5
+                        p.part-description O RING
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location A8
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S22225CM060018H
+                        p.part-description SCREW
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location A9
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | A10
+                          span.badge.bg-requires-stock &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                tr.grid-row
+                  th.row-header B
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B1
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B2
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B3
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B4
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | B5
+                          span.badge.bg-requires-stock &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B6
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B7
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B8
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | B9
+                          span.badge.bg-requires-stock &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location B10
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                tr.grid-row
+                  th.row-header C
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C1
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | C2
+                          span.badge.bg-requires-stock &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C3
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C4
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C5
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C6
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C7
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      p.grid-item-placeholder C8
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C9
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location C10
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                tr.grid-row
+                  th.row-header D
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | D1
+                          span.badge.bg-empty &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location D2
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location D3
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location
+                          | D4
+                          span.badge.bg-requires-stock &nbsp;
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location D5
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location D6
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location D7
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location D8
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td(colspan='2')
+                    .grid-item
+                      .grid-item-header
+                        p.location D9
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                tr.grid-row
+                  th.row-header E
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E1
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E2
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E3
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E4
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E5
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E6
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 0 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E7
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td
+                    .grid-item
+                      .grid-item-header
+                        p.location E8
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+                  td(colspan='2')
+                    .grid-item
+                      .grid-item-header
+                        p.location E9
+                      .grid-item-content
+                        p.part-number
+                          a(href='#') S4614BB2
+                        p.part-description LABEL
+                        p.part-number 150 / 200
+                        // <div class="grid-item-resizer grid-item-end-resizer"></div>
+      // /inner content wrapper
+    // /content wrapper
+    a.exit-offscreen

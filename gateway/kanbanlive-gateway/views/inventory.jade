@@ -1,0 +1,511 @@
+extends layout
+
+block content
+  aside.inventory-sidebar.canvas-right.bg-default
+    .content-wrap.no-p
+      .wrapper
+        nav.inventory-navigation(role='navigation', data-height='auto', data-size='6px', data-distance='0', data-rail-visible='true', data-wheel-step='10')
+          .no-padding
+            p.nav-title Quick Links
+            ul.nav.nav-stacked
+              li
+                a(href='inventory.html') New demand
+              li
+                a(href='javascript:;')
+                  | In progress
+                  span.badge.pull-right.bg-requires-stock.badge-pill-right 95
+                  span.badge.pull-right.bg-empty.badge-pill-left 3
+              li
+                a(href='javascript:;')
+                  | Overview
+                  span.badge.pull-right.bg-requires-stock.badge-pill-right 95
+                  span.badge.pull-right.bg-empty.badge-pill-left 3
+              li
+                a(href='javascript:;')
+                  | Empty
+                  span.badge.pull-right.bg-empty 3
+              li
+                a(href='javascript:;')
+                  | Requires stock
+                  span.badge.pull-right.bg-requires-stock 95
+            p.nav-title Locations
+            ul.nav.nav-stacked
+              li.open
+                a.active(href='javascript:;')
+                  i.toggle-accordion
+                  span Liebherr
+                ul.sub-menu
+                  li.open
+                    a.active(href='javascript:;')
+                      i.toggle-accordion
+                      span Gravure
+                    ul.sub-menu
+                      li
+                        a(href='/panel')
+                          span M01
+                          span.badge.pull-right.bg-requires-stock 4
+                  li
+                    a(href='javascript:;')
+                      i.toggle-accordion
+                      span MGF
+                    ul.sub-menu
+                      li
+                        a(href='javascript:;')
+                          span A01
+                      li
+                        a(href='javascript:;')
+                          span A03
+                      li
+                        a(href='javascript:;')
+                          span A05
+                      li
+                        a(href='javascript:;')
+                          span A07
+                      li
+                        a(href='javascript:;')
+                          span A09
+                      li
+                        a(href='javascript:;')
+                          span A10
+                      li
+                        a(href='javascript:;')
+                          span A12
+                      li
+                        a(href='javascript:;')
+                          span A13
+                      li
+                        a(href='javascript:;')
+                          span A14
+                      li
+                        a(href='javascript:;')
+                          span A15
+                      li
+                        a(href='javascript:;')
+                          span A16
+                      li
+                        a(href='javascript:;')
+                          span A17
+                      li
+                        a(href='javascript:;')
+                          span A18
+                      li
+                        a(href='javascript:;')
+                          span A19
+                      li
+                        a(href='javascript:;')
+                          span B09
+                      li
+                        a(href='javascript:;')
+                          span B11
+                      li
+                        a(href='javascript:;')
+                          span B12
+                      li
+                        a(href='javascript:;')
+                          span B13
+                      li
+                        a(href='javascript:;')
+                          span B14
+                      li
+                        a(href='javascript:;')
+                          span B15
+                      li
+                        a(href='javascript:;')
+                          span B16
+                      li
+                        a(href='javascript:;')
+                          span B17
+                      li
+                        a(href='javascript:;')
+                          span B18
+                      li
+                        a(href='javascript:;')
+                          span B19
+                      li
+                        a(href='javascript:;')
+                          span B21
+                      li
+                        a(href='javascript:;')
+                          span B22
+                      li
+                        a(href='javascript:;')
+                          span B23
+                      li
+                        a(href='javascript:;')
+                          span B24
+                      li
+                        a(href='javascript:;')
+                          span B25
+                      li
+                        a(href='javascript:;')
+                          span B26
+                      li
+                        a(href='javascript:;')
+                          span B27
+                      li
+                        a(href='javascript:;')
+                          span B28
+                      li
+                        a(href='javascript:;')
+                          span B29
+                      li
+                        a(href='javascript:;')
+                          span B30
+                      li
+                        a(href='javascript:;')
+                          span B31
+                      li
+                        a(href='javascript:;')
+                          span B32
+              li
+                a(href='javascript:;')
+                  i.toggle-accordion
+                  |  Technofan
+                ul.sub-menu
+                  li
+                    a(href='javascript:;')
+                      span Kardex A
+                  li
+                    a(href='javascript:;')
+                      span Kardex B
+  // main content
+  section.main-content
+    // content wrapper
+    .content-wrap
+      // inner content wrapper
+      .wrapper
+        .row.mb15
+          .col-xs-6
+            h4 New demand
+          .col-xs-6.text-right
+            #nestable-menu.btn-group
+              button.btn.btn-primary.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='true')
+                | Download
+                span.caret
+              ul.dropdown-menu.dropdown-menu-right(role='menu')
+                li
+                  a(href='javascript:;') Download
+                li
+                  a(href='javascript:;')
+                    | Download
+                    br
+                    em and set to in progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / Gravure / M01
+              .panel-body
+                table.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/6004') M01B02
+                      td
+                        a.partnumber(href='#') S1311A
+                      td
+                        | LABEL
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/6005') M01B03
+                      td
+                        a.partnumber(href='#') S4680
+                      td
+                        | PLATE
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/6007') M01B05
+                      td
+                        a.partnumber(href='#') S4646-22AE
+                      td
+                        | PLAQUETTE
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/6381') M01D06
+                      td
+                        a.partnumber(href='#') S4646-03AF
+                      td
+                        | LABEL
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / A10
+              .panel-body
+                table.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/6281') A10A04
+                      td
+                        a.partnumber(href='#') S626-7-2X1-9
+                      td
+                        | SEAL
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/6284') A10B03
+                      td
+                        a.partnumber(href='#') 150X3-21A6
+                      td
+                        | O&apos;RING
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-empty &nbsp;
+                      td
+                        a(href='/sites/6/bins/6301') A10F04
+                      td
+                        a.partnumber(href='#') 65-5X2-50D6
+                      td
+                        | O&apos;RING
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / A12
+              .panel-body
+                table.statuslist.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3623') A12C03
+                      td
+                        a.partnumber(href='#') S637-11601222
+                      td
+                        | CAP
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / A14
+              .panel-body
+                table.statuslist.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3651') A14C03
+                      td
+                        a.partnumber(href='#') MS3470W14-19PN
+                      td
+                        | CONNECTOR
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / A15
+              .panel-body
+                table.statuslist.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3660') A15B01
+                      td
+                        a.partnumber(href='#') HE302-2H1006PN
+                      td
+                        | CONNECTOR
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3664') A15C01
+                      td
+                        a.partnumber(href='#') B03AA1010-050
+                      td
+                        | VALVE
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3665') A15C02
+                      td
+                        a.partnumber(href='#') HE302-2H083APN
+                      td
+                        | CONNECTOR
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / A17
+              .panel-body
+                table.statuslist.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3694') A17C01
+                      td
+                        a.partnumber(href='#') S622-16X2
+                      td
+                        | O&apos;RING
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3695') A17C02
+                      td
+                        a.partnumber(href='#') 60078-39
+                      td
+                        | SCREW
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / A19
+              .panel-body
+                table.statuslist.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3718') A19A01
+                      td
+                        a.partnumber(href='#') S628-72-5X1-5
+                      td
+                        | SEAL
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3720') A19A03
+                      td
+                        a.partnumber(href='#') S628-34X1-9
+                      td
+                        | O&apos;RING
+                      td
+                        | In progress
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3733') A19D04
+                      td
+                        a.partnumber(href='#') S101-36
+                      td
+                        | BEARING
+                      td
+                        | In progress
+        .row
+          .col-md-12
+            section.panel.no-b
+              header.panel-heading
+                h4 Liebherr / MGF / B09
+              .panel-body
+                table.statuslist.table.table-striped
+                  thead
+                    tr
+                      th.status
+                      th.loc Location
+                      th.partnumber Part Number
+                      th.description Description
+                      th.demand_status Demand status
+                  tbody
+                    tr
+                      td
+                        span.badge.bg-requires-stock &nbsp;
+                      td
+                        a(href='/sites/6/bins/3737') B09B01
+                      td
+                        a.partnumber(href='#') 61810
+                      td
+                        | BEARING
+                      td
+                        | In progress
+    a.exit-offscreen

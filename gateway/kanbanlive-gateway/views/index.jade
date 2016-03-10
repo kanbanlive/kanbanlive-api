@@ -1,0 +1,216 @@
+extends layout
+
+block content
+  section.main-content
+    .content-wrap
+      .wrapper
+        .row
+          .col-md-3.col-sm-6.col-xs-12
+            section.dash-tile
+              .tile-title ALL TIME EARNING
+              .tile-stats
+                b 8068
+              .progress.progress-xs.mt5.mb10
+                .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+              .tile-footer
+                | Based on new sales
+          .col-md-3.col-sm-6.col-xs-12
+            section.dash-tile.bg-danger
+              .tile-title
+                span.pull-right
+                  i.ti-arrow-circle-up.mr5
+                  | 8%
+                span Realtime page clicks
+              .tile-stats
+                b 4565
+              .mb20
+              .tile-chart.tile-line
+              .tile-footer
+                | 800ms intervals
+          .col-md-3.col-sm-6.col-xs-12
+            section.dash-tile.bg-success
+              .tile-title ALL TIME EARNING
+              .tile-stats
+                b 89790
+              .tile-bottom
+                small
+                  i.ti-arrow-circle-up.mr5
+                  | 4.6% Weekly
+                  b Change
+              .tile-footer
+                | Based on new sales
+              .tile-icon
+                i.ti-timer
+          .col-md-3.col-sm-6.col-xs-12
+            section.dash-tile.bg-warning
+              .tile-title.title-heading.text-center.bg-warning
+                a.widget-refresh(href='javascript:;')
+                  i.ti-reload.pull-right
+                a(href='javascript:;')
+                  i.ti-menu.pull-left
+                span Open support cases
+              .tile-stats
+                b 478
+              .tile-bottom
+                small
+                  i.ti-arrow-circle-down.mr5
+                  | .65% Weekly
+                  b Change
+              .tile-footer
+                | Based on today&apos;s tickets
+        .row
+          .col-md-12.col-lg-8
+            .panel.no-b.rounded.overflow-hidden
+              .panel-body.no-p.bg-primary
+                .map.clearfix(style='display: block;height: 200px;')
+                .row.text-center(style='padding: 40px 0;')
+                  .col-xs-6.col-sm-3
+                    span.h4.show.count(data-from='0', data-to='5687', data-interval='50') 0
+                    small.text-uppercase Customers
+                  .col-xs-6.col-sm-3
+                    span.h4.show.count(data-from='0', data-to='78694') 0
+                    small.text-uppercase Page Views
+                  .col-xs-6.col-sm-3
+                    span.h4.show.count(data-from='0', data-to='12095') 0
+                    small.text-uppercase Pingbacks
+                  .col-xs-6.col-sm-3
+                    span.h4.show.count(data-from='0', data-to='9427', data-interval='50') 0
+                    small.text-uppercase Bounce rate
+              ul.list-group
+                li.list-group-item.no-b
+                  span.badge.bg-danger 14
+                  |  Marshall Islands
+                li.list-group-item
+                  span.badge.bg-success 2
+                  |  Saint Kitts and Nevis
+                li.list-group-item
+                  span.badge.bg-warning 1
+                  |  Antigua and Barbuda
+            section.widget
+              .row.equal-blocks.no-m
+                .col-xs-6.block
+                  .text-center
+                    i.fa.fa-twitter.fa-5x.text-info
+                    h6.text-uppercase Twitter feed
+                .col-xs-6.block.bg-primary.brtr.brbr.p25
+                  .arrow.left
+                  .widget-body
+                    em
+                      | Just released a new wordpress theme. Check it out:
+                      a(href='http://themeforest.net/user/iamnyasha/portfolio?ref=iamnyasha') twitter.com/WGnEavg6Ok
+                      |  &mdash; Envanto(@Envanto) #Portfolio
+                      a.small(href='#') July 31, 2014
+            .row
+              .col-sm-6
+                section.widget.bg-primary
+                  .widget-body
+                    a.pull-left.mr15(href='javascript:;')
+                      img.avatar.avatar-md.img-circle(src='images/avatar.jpg', alt='')
+                    .overflow-hidden
+                      div
+                        small.pull-right DEV
+                        b Gerald Morris
+                      small.show San Francisco, CA
+                      small.show Interactive UX Developer
+              .col-sm-6
+                section.widget.bordered
+                  .panel-body
+                    a.pull-left.mr15(href='javascript:;')
+                      img.avatar.avatar-md.img-circle(src='images/avatar.jpg', alt='')
+                    .overflow-hidden
+                      b Gerald Morris
+                      small.show 6,387 Followers / 758 Following
+                      .show
+                      a.btn.btn-primary.btn-xs.mt5(href='javascript:;') Send request
+          .col-md-12.col-lg-4
+            section.widget
+              .widget-header.bg-info
+                i.ti-arrow-circle-up.text-white
+                span.h3 4.48
+                span k
+                span.small.show.text-uppercase 23% Projected Growth
+              .widget-body.bg-info
+                .text-center.mt15.mb10
+                  span.dash-line
+              footer.widget-footer.text-center
+                .row
+                  .col-xs-4
+                    .small.show.text-uppercase.text-muted Sales
+                    .h4.no-m
+                      b 5467
+                  .col-xs-4
+                    .small.show.text-uppercase.text-muted Referals
+                    .h4.no-m
+                      b 6873
+                  .col-xs-4
+                    .small.show.text-uppercase.text-muted Reversals
+                    .h4.no-m
+                      b 8
+            section.widget.bg-danger
+              .cover.rounded(style='background-image: url(images/DeathtoStock_Wired5.jpg)')
+              .overlay.rounded.bg-danger
+              .widget-header.text-center
+                a(href='javascript:;')
+                  i.ti-plus.text-white.pull-right
+                a(href='javascript:;')
+                  i.ti-menu.text-white.pull-left
+                span Quote
+              .widget-body
+                blockquote.no-p.no-m
+                  p
+                    | This is dummy copy. It&apos;s Greek to you. Unless, of course, you&apos;re Greek, in which case, it really makes no sense. Why, you can&apos;t even read it! It is strictly for mock-ups. You may mock it up as strictly as you wish.
+                  small.text-white Steve Jobs, CEO Apple
+              footer.widget-footer
+                p.small.text-right
+                  a.text-white.mr10(href='javascript:;') Reply
+                  a.text-white(href='javascript:;')
+                    i.ti-heart.mr5
+                    | Like
+            section.widget
+              .cover.rounded(style='background-image: url(images/DeathtoStock_Wired5.jpg)')
+              .overlay.rounded.bg-primary
+              .widget-body
+                .text-white
+                  br
+                  p
+                    | Shaw, those twelve beige hooks are joined if I patch a young, gooey mouth.
+                  .mb10
+                    a.text-muted.mr15(href='javascript:;')
+                      i.ti-comment.mr5
+                      | 3523
+                    a(href='javascript:;')
+                      i.ti-heart.text-danger.mr5
+                      | 12K
+                  ul.text-white.list-style-none
+                    i.fa.fa-star.text-danger
+                    i.fa.fa-star.text-danger
+                    i.fa.fa-star.text-danger
+                    i.fa.fa-star-o
+                    i.fa.fa-star-o
+                  a.show.small(href='javascript:;') View Product
+            section.panel.panel-primary
+              header.panel-heading
+                .h5
+                  i.fa.fa-facebook-square.mr5
+                  b Facebook
+              footer.panel-footer.text-center
+                .row
+                  .col-xs-4
+                    .small.show.text-uppercase.text-muted Friends
+                    .h4.no-m
+                      b 5434
+                  .col-xs-4
+                    .small.show.text-uppercase.text-muted Photos
+                    .h4.no-m
+                      b 894
+                  .col-xs-4
+                    .small.show.text-uppercase.text-muted Messages
+                    .h4.no-m
+                      b 08
+        .row.mb25
+          .col-xs-12.text-right
+            i.ti-arrow-circle-up.text-success
+            span.h3 4.48
+            span k
+            span.small.show 23% Projected Growth
+    a.exit-offscreen
